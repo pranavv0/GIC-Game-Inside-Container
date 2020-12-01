@@ -1,0 +1,3 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get  install --no-install-recommends software-properties-common wget xauth dbus-x11 gpg-agent -y && xauth add instance-1/unix:10  MIT-MAGIC-COOKIE-1  8d86d3338c132e1988f5044eec20b58c && dbus-uuidgen > /etc/machine-id &&  dpkg --add-architecture i386 && wget -O - https://dl.winehq.org/wine-builds/winehq.key | apt-key add -  &&  add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' && apt update -y && apt install --install-recommends winehq-stable -y &&  apt-get  remove software-properties-common wget -y && rm -rf /var/lib/apt/lists/ && apt-get autoremove -y
+
